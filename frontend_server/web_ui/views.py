@@ -65,8 +65,8 @@ def signup_page(request):
 
         try:
             response = requests.post(f"{GO_BACKEND_URL}/api/signup", json=payload)
-
-            if response.status_code == 201:
+            print(f"Signup response: {response.status_code} - {response.text}")
+            if response.status_code in [200, 201]:
                 messages.success(request, "Account created! Please log in.")
                 return redirect('login')
             else:
