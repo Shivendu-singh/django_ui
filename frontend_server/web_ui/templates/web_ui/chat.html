@@ -188,11 +188,11 @@
                 // console.log("the data is ", data);
                 // console.log("[ws] Received message:");
 
-                // if (msgType === 'chat') {
-                //     // console.log("[ws] 📨 Message received:", data);
-                //     appendMessage(data, true);
-                //     scrollToBottom();
-                // }
+                 if (msgType === 'chat') {
+                    //console.log("[ws] 📨 Message received:", data);
+                     appendMessage(data, true);
+                     scrollToBottom();
+                 }
                 if (msgType === 'history') {
                     // console.log("Initial history received:", data.messages);
 
