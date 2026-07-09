@@ -162,7 +162,7 @@
         ws_backend_url = ws_backend_url.replace('ws://', 'wss://');
     }
     
-    const WS_URL = `${ws_backend_url}/chat/${GROUP_ID}`;
+   const WS_URL = `${ws_backend_url}/ws/chat/${GROUP_ID}`;
     let socket = null;
     let reconnectAttempts = 0;
     const MAX_RECONNECT_ATTEMPTS = 5;
