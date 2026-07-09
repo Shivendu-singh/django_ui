@@ -158,6 +158,10 @@
 
     // ===== WebSocket Setup =====
     const ws_backend_url = "{{ ws_backend_url }}";
+    if (window.location.protocol === 'https:' && ws_backend_url.startsWith('ws://')) {
+        ws_backend_url = ws_backend_url.replace('ws://', 'wss://');
+    }
+    
     const WS_URL = `${ws_backend_url}/chat/${GROUP_ID}`;
     let socket = null;
     let reconnectAttempts = 0;
