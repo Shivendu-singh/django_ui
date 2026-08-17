@@ -3,15 +3,15 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<div class="max-w-5xl mx-auto h-[calc(100vh-140px)] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:bg-[#0B1120] dark:border-gray-800">
+<div class="max-w-5xl mx-auto h-[calc(100vh-140px)] flex flex-col glass glass-card rounded-[32px] overflow-hidden border border-white/20 dark:border-white/10">
     
-    <div class="px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-100 flex justify-between items-center z-10 dark:bg-gray-900/80 dark:border-gray-800">
+    <div class="px-6 py-4 bg-white/20 dark:bg-black/20 backdrop-blur-md border-b border-white/20 dark:border-white/10 flex justify-between items-center z-10">
         <div class="flex items-center gap-4">
-            <a href="{% url 'home' %}" class="h-10 w-10 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 transition dark:hover:bg-gray-800 dark:text-gray-400">
+            <a href="{% url 'home' %}" class="h-10 w-10 flex items-center justify-center rounded-xl bg-white/40 dark:bg-black/20 hover:bg-white/60 text-gray-700 transition dark:hover:bg-white/10 dark:text-gray-300 backdrop-blur-sm border border-white/40 dark:border-white/10">
                 <i class="fa-solid fa-arrow-left text-lg"></i>
             </a>
             <div>
-                <h2 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h2 class="text-lg font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
                     Group Chat
                     <span id="connection-badge" class="px-2 py-0.5 rounded-full bg-gray-200 text-gray-600 text-[10px] uppercase tracking-wide font-bold border border-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600">
                         Connecting...
@@ -28,17 +28,17 @@
         </div>
     </div>
 
-    <div id="chat-container" class="flex-1 bg-gray-50/50 overflow-y-auto p-6 space-y-6 dark:bg-[#0f172a]">
+    <div id="chat-container" class="flex-1 bg-transparent overflow-y-auto p-6 space-y-6">
         <div id="empty-state" class="h-full flex flex-col items-center justify-center text-center transition-opacity duration-500"> 
-            <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center mb-4 dark:bg-gray-800/50 shadow-inner">
-                <i class="fa-regular fa-comments text-3xl text-indigo-300 dark:text-gray-600"></i>
+            <div class="w-20 h-20 bg-electric/20 rounded-full flex items-center justify-center mb-4 shadow-sm border border-electric/30">
+                <i class="fa-regular fa-comments text-3xl text-electric"></i>
             </div>
             <h3 class="text-gray-900 font-bold text-lg dark:text-white">Group Chat</h3>
             <p class="text-gray-500 text-sm mt-1 max-w-xs mx-auto dark:text-gray-400">Start typing or upload a file!</p>
         </div>
     </div>
 
-    <div id="upload-progress-container" class="hidden px-6 py-2 bg-gray-50 border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+    <div id="upload-progress-container" class="hidden px-6 py-2 bg-white/40 dark:bg-black/20 border-t border-white/20 dark:border-white/10 backdrop-blur-sm">
         <div class="flex items-center gap-3">
             <i class="fa-solid fa-cloud-arrow-up text-indigo-500 animate-bounce"></i>
             <span class="text-xs font-medium text-gray-500">Uploading...</span>
@@ -48,23 +48,23 @@
         </div>
     </div>
 
-    <div class="p-4 bg-white border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+    <div class="p-4 bg-white/20 dark:bg-black/20 border-t border-white/20 dark:border-white/10 backdrop-blur-md">
         <form id="chat-form" class="relative flex gap-3 items-end max-w-4xl mx-auto">
             
             <input type="file" id="file-input" class="hidden">
             
-            <button type="button" id="file-trigger" class="bg-gray-100 text-gray-500 rounded-2xl w-14 h-[58px] flex items-center justify-center transition hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700">
+            <button type="button" id="file-trigger" class="glass text-gray-700 rounded-2xl w-14 h-[58px] flex items-center justify-center transition hover:bg-white/40 dark:text-gray-300 cursor-pointer shadow-sm">
                 <i class="fa-solid fa-paperclip text-lg"></i>
             </button>
 
             <div class="flex-1 relative">
                 <input type="text" id="message-input" 
-                    class="w-full bg-gray-100 text-gray-900 rounded-2xl px-6 py-4 pr-12 focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all placeholder-gray-400 shadow-inner outline-none dark:bg-gray-800 dark:text-white dark:focus:bg-gray-700 dark:focus:ring-indigo-500/50"
+                    class="w-full bg-white/40 text-gray-900 rounded-2xl px-6 py-4 pr-12 focus:ring-2 focus:ring-electric focus:bg-white/60 transition-all placeholder-gray-500 shadow-inner outline-none dark:bg-black/20 dark:text-white dark:focus:bg-black/40 border border-white/50 dark:border-white/10 backdrop-blur-sm"
                     placeholder="Type a message..." autocomplete="off" disabled>
             </div>
             
             <button type="submit" id="send-button"
-                class="bg-gray-400 text-white rounded-2xl w-14 h-[58px] flex items-center justify-center transition shadow-lg cursor-not-allowed" disabled>
+                class="bg-gray-400/50 text-white rounded-2xl w-14 h-[58px] flex items-center justify-center transition shadow-lg cursor-not-allowed backdrop-blur-sm border border-white/20" disabled>
                 <i class="fa-solid fa-paper-plane text-lg translate-x-0.5 translate-y-0.5"></i>
             </button>
         </form>
@@ -358,8 +358,8 @@
         wrapper.className = `flex w-full ${isMe ? 'justify-end' : 'justify-start'} mb-4 ${animate ? 'animate-fade-in-up' : ''}`;
         
         const bubbleClass = isMe 
-            ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-sm shadow-md' 
-            : 'bg-white text-gray-800 rounded-2xl rounded-tl-sm shadow-sm border border-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700';
+            ? 'btn-primary text-white rounded-2xl rounded-tr-sm shadow-md border border-white/20' 
+            : 'glass text-gray-800 rounded-2xl rounded-tl-sm shadow-sm dark:text-gray-100';
 
         // ... (File handling logic remains the same) ...
         const fileUrl = data.file_url || data.FileURL;
@@ -441,8 +441,8 @@
         wrapper.className = `flex w-full ${isMe ? 'justify-end' : 'justify-start'} mb-4 ${animate ? 'animate-fade-in-up' : ''}`;
 
         const bubbleClass = isMe
-            ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-sm shadow-md'
-            : 'bg-white text-gray-800 rounded-2xl rounded-tl-sm shadow-sm border border-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700';
+            ? 'btn-primary text-white rounded-2xl rounded-tr-sm shadow-md border border-white/20'
+            : 'glass text-gray-800 rounded-2xl rounded-tl-sm shadow-sm dark:text-gray-100';
 
         // ... (File handling logic remains the same) ...
         const fileUrl = data.file_url || data.FileURL;
@@ -551,7 +551,7 @@
         messageInput.disabled = false;
         messageInput.placeholder = "Type a message...";
         sendButton.disabled = false;
-        sendButton.className = "bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl w-14 h-[58px] flex items-center justify-center transition shadow-lg shadow-indigo-500/30 hover:-translate-y-1 active:scale-95 active:shadow-sm dark:bg-indigo-600 dark:hover:bg-indigo-500 cursor-pointer";
+        sendButton.className = "btn-primary text-white rounded-2xl w-14 h-[58px] flex items-center justify-center transition shadow-lg hover:-translate-y-1 active:scale-95 active:shadow-sm cursor-pointer";
     }
 
     function disableInput() {

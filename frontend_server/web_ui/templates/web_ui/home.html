@@ -5,14 +5,14 @@
 <div class="flex flex-col md:flex-row justify-between items-center mb-10">
     <div>
         <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight dark:text-white">Your Groups</h2>
-        <p class="text-gray-500 mt-1 dark:text-gray-400">Manage shared expenses with ease.</p>
+        <p class="text-gray-600 mt-1 dark:text-gray-300">Manage shared expenses with ease.</p>
     </div>
     {% if is_logged_in %}
     <div class="flex space-x-3 mt-4 md:mt-0">
-        <a href="{% url 'join_group' %}" class="px-5 py-2.5 bg-white border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition shadow-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-indigo-400">
+        <a href="{% url 'join_group' %}" class="px-5 py-2.5 glass rounded-xl text-sm font-semibold text-gray-800 hover:bg-white/40 dark:text-gray-100 transition shadow-sm">
             <i class="fa-solid fa-user-plus mr-2"></i> Join Group
         </a>
-        <a href="{% url 'create_group' %}" class="px-5 py-2.5 bg-indigo-600 border border-transparent rounded-xl text-sm font-semibold text-white hover:bg-indigo-700 transition shadow-md hover:shadow-lg flex items-center dark:bg-indigo-600 dark:hover:bg-indigo-500">
+        <a href="{% url 'create_group' %}" class="px-5 py-2.5 btn-primary rounded-xl text-sm font-semibold text-white transition shadow-md hover:shadow-lg flex items-center">
             <i class="fa-solid fa-plus mr-2"></i> Create Group
         </a>
     </div>
@@ -24,38 +24,38 @@
     {% if groups %}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for g in groups %}
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-indigo-100 transition duration-300 p-6 flex flex-col h-full group dark:bg-gray-800 dark:border-gray-700 dark:hover:border-indigo-900">
+        <div class="glass glass-card rounded-3xl p-6 flex flex-col h-full group">
             <div class="flex justify-between items-start mb-4">
-                <div class="h-12 w-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 dark:bg-gray-700 dark:text-indigo-400 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
+                <div class="h-12 w-12 rounded-xl bg-electric/20 text-electric flex items-center justify-center text-xl font-bold group-hover:bg-electric group-hover:text-white transition-colors duration-300 shadow-sm">
                     {{ g.name|slice:":1"|upper }}
                 </div>
-                <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider dark:bg-green-900/30 dark:text-green-400">Active</span>
+                <span class="bg-tealy/20 text-tealy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider border border-tealy/30">Active</span>
             </div>
             
             <h3 class="text-xl font-bold text-gray-900 mb-1 truncate dark:text-white">{{ g.name }}</h3>
             
-            <div class="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-700/50 dark:border-gray-600">
-                <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1 dark:text-gray-500">Join Code</p>
+            <div class="mt-4 p-3 glass rounded-xl border border-white/20">
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 dark:text-gray-400">Join Code</p>
                 <div class="flex justify-between items-center">
-                    <p id="code-{{ g.id }}" class="text-lg font-mono font-semibold text-gray-800 tracking-wider dark:text-gray-200">{{ g.join_code }}</p>
+                    <p id="code-{{ g.id }}" class="text-lg font-mono font-semibold text-gray-900 tracking-wider dark:text-gray-100">{{ g.join_code }}</p>
                     
-                    <button onclick="copyCode('{{ g.join_code }}', this)" class="text-gray-400 hover:text-indigo-600 transition focus:outline-none dark:hover:text-indigo-400" title="Copy Code">
+                    <button onclick="copyCode('{{ g.join_code }}', this)" class="text-gray-500 hover:text-electric transition focus:outline-none dark:hover:text-electric cursor-pointer" title="Copy Code">
                         <i class="fa-regular fa-copy"></i>
                     </button>
                 </div>
             </div>
             
             <div class="mt-auto pt-6 grid grid-cols-4 gap-2">
-                <a href="{% url 'simplify' g.id %}" class="flex items-center justify-center py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-600 hover:border-indigo-200 hover:text-indigo-600 transition dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400">
+                <a href="{% url 'simplify' g.id %}" class="flex items-center justify-center py-2 glass rounded-lg text-xs font-bold text-gray-700 hover:bg-white/40 hover:text-electric transition dark:text-gray-200">
                     Debts
                 </a>
-                <a href="{% url 'group_expenses' g.id %}" class="flex items-center justify-center py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-600 hover:border-indigo-200 hover:text-indigo-600 transition dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400">
+                <a href="{% url 'group_expenses' g.id %}" class="flex items-center justify-center py-2 glass rounded-lg text-xs font-bold text-gray-700 hover:bg-white/40 hover:text-electric transition dark:text-gray-200">
                     History
                 </a>
-                <a href="{% url 'group_chat' g.id %}" class="flex items-center justify-center py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-600 hover:border-indigo-200 hover:text-indigo-600 transition dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400">
+                <a href="{% url 'group_chat' g.id %}" class="flex items-center justify-center py-2 glass rounded-lg text-xs font-bold text-gray-700 hover:bg-white/40 hover:text-electric transition dark:text-gray-200">
                     Chat
                 </a>
-                <a href="{% url 'add_expense' g.id %}" class="flex items-center justify-center py-2 bg-indigo-50 border border-transparent rounded-lg text-xs font-bold text-indigo-700 hover:bg-indigo-100 transition dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50">
+                <a href="{% url 'add_expense' g.id %}" class="flex items-center justify-center py-2 bg-pinky/20 border border-pinky/30 rounded-lg text-xs font-bold text-pinky hover:bg-pinky/30 transition shadow-sm">
                     Add +
                 </a>
             </div>
@@ -63,30 +63,30 @@
         {% endfor %}
     </div>
     {% else %}
-    <div class="text-center py-20 bg-white rounded-2xl border-2 border-dashed border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4 dark:bg-gray-700">
-            <i class="fa-solid fa-users-slash text-2xl text-gray-400 dark:text-gray-500"></i>
+    <div class="text-center py-20 glass rounded-3xl border border-dashed border-white/40 dark:border-white/20">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-electric/20 mb-4 text-electric">
+            <i class="fa-solid fa-users-slash text-2xl"></i>
         </div>
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white">No groups yet</h3>
-        <p class="text-gray-500 mb-6 dark:text-gray-400">You haven't joined any groups yet.</p>
-        <a href="{% url 'create_group' %}" class="text-indigo-600 font-semibold hover:text-indigo-800 hover:underline dark:text-indigo-400 dark:hover:text-indigo-300">Create a group now &rarr;</a>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">No groups yet</h3>
+        <p class="text-gray-600 mb-6 dark:text-gray-400">You haven't joined any groups yet.</p>
+        <a href="{% url 'create_group' %}" class="btn-primary inline-block px-6 py-3 rounded-full text-white font-bold transition">Create a group now &rarr;</a>
     </div>
     {% endif %}
 
 {% else %}
-    <div class="text-center py-24 px-4">
-        <div class="inline-block p-4 rounded-full bg-indigo-50 text-indigo-600 mb-6 shadow-sm dark:bg-gray-800 dark:text-indigo-400">
+    <div class="text-center py-24 px-4 glass glass-card rounded-[40px] max-w-4xl mx-auto">
+        <div class="inline-block p-4 rounded-full bg-electric/20 text-electric mb-6 shadow-sm border border-electric/30">
             <i class="fa-solid fa-wallet text-4xl"></i>
         </div>
         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6 dark:text-white">
-            Split expenses,<br class="hidden md:block"> <span class="text-indigo-600 dark:text-indigo-400">stress-free.</span>
+            Split expenses,<br class="hidden md:block"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric to-tealy">stress-free.</span>
         </h1>
-        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500 leading-relaxed dark:text-gray-400">
+        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-700 leading-relaxed dark:text-gray-300">
             Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.
         </p>
         <div class="mt-10 flex justify-center gap-4">
-            <a href="{% url 'signup' %}" class="px-8 py-3.5 bg-indigo-600 text-white font-bold rounded-xl shadow-lg hover:bg-indigo-700 hover:shadow-indigo-500/30 transition transform hover:-translate-y-1 dark:bg-indigo-600 dark:hover:bg-indigo-500">Get Started</a>
-            <a href="{% url 'login' %}" class="px-8 py-3.5 bg-white text-indigo-600 font-bold border border-gray-200 rounded-xl hover:bg-gray-50 transition dark:bg-gray-800 dark:text-indigo-400 dark:border-gray-700 dark:hover:bg-gray-700">Log In</a>
+            <a href="{% url 'signup' %}" class="px-8 py-3.5 btn-primary text-white font-bold rounded-xl shadow-lg transition">Get Started</a>
+            <a href="{% url 'login' %}" class="px-8 py-3.5 glass text-gray-900 font-bold rounded-xl hover:bg-white/40 transition dark:text-white">Log In</a>
         </div>
     </div>
 {% endif %}
@@ -99,14 +99,14 @@
             
             // Change icon to checkmark and color to green
             btnElement.innerHTML = '<i class="fa-solid fa-check"></i>';
-            btnElement.classList.remove('text-gray-400', 'hover:text-indigo-600');
+            btnElement.classList.remove('text-gray-500', 'hover:text-electric');
             btnElement.classList.add('text-green-500');
             
             // Revert back after 2 seconds
             setTimeout(() => {
                 btnElement.innerHTML = originalIcon;
                 btnElement.classList.remove('text-green-500');
-                btnElement.classList.add('text-gray-400', 'hover:text-indigo-600');
+                btnElement.classList.add('text-gray-500', 'hover:text-electric');
             }, 2000);
         }).catch(err => {
             console.error('Failed to copy: ', err);

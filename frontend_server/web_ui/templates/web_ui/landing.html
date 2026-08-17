@@ -1,0 +1,104 @@
+{% extends "web_ui/base.html" %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 space-y-8">
+            <div class="inline-block glass px-4 py-1.5 rounded-full text-sm font-semibold text-pinky mb-2 border border-pinky/30">
+                ✨ Revolutionizing Shared Expenses
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
+                Split expenses, <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric to-tealy">stress-free.</span>
+            </h1>
+            <p class="text-lg md:text-xl opacity-80 leading-relaxed max-w-lg">
+                The most elegant way to track shared expenses, balances, and settle up with friends, family, or flatmates. Experience the future of finance UI.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="/signup/" class="btn-primary text-center text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl cursor-pointer inline-block">
+                    Start for free
+                </a>
+                <a href="#features" class="glass text-center px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/30 dark:hover:bg-white/10 transition-colors cursor-pointer inline-block">
+                    See how it works
+                </a>
+            </div>
+        </div>
+        <div class="md:w-1/2 w-full mt-16 md:mt-0 relative flex justify-center items-center min-h-[400px]">
+            <div class="relative w-[320px] h-[320px]">
+                <div class="glass glass-card p-6 rounded-3xl absolute right-0 top-0 translate-x-4 -translate-y-4 rotate-6 z-10 flex flex-col gap-3 w-64">
+                    <div class="flex justify-between items-center">
+                        <div class="w-10 h-10 rounded-full bg-pinky/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-pinky" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <span class="text-sm font-bold opacity-70">Dinner Split</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-black">$124.50</p>
+                        <p class="text-xs opacity-60">You owe Alex $62.25</p>
+                    </div>
+                </div>
+                
+                <div class="glass glass-card p-6 rounded-3xl absolute left-0 bottom-0 -translate-x-4 translate-y-4 -rotate-6 z-20 flex flex-col gap-3 w-64">
+                    <div class="flex justify-between items-center">
+                        <div class="w-10 h-10 rounded-full bg-tealy/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-tealy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                        <span class="text-sm font-bold opacity-70">Settled Up</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-black text-tealy">All clear!</p>
+                        <p class="text-xs opacity-60">No outstanding balances</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-32">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Brilliant Features</h2>
+            <p class="text-lg opacity-70 max-w-2xl mx-auto">Everything you need to manage shared finances without the headache, wrapped in a beautiful interface.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="glass glass-card p-8 rounded-3xl cursor-pointer">
+                <div class="w-14 h-14 rounded-2xl bg-electric/20 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-electric" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Group Management</h3>
+                <p class="opacity-70 leading-relaxed">Create groups for trips, apartments, or events. Add members instantly with a simple join code.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="glass glass-card p-8 rounded-3xl cursor-pointer">
+                <div class="w-14 h-14 rounded-2xl bg-pinky/20 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-pinky" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Smart Splitting</h3>
+                <p class="opacity-70 leading-relaxed">Split expenses equally, by percentages, or specific amounts. Our engine handles the complex math.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="glass glass-card p-8 rounded-3xl cursor-pointer">
+                <div class="w-14 h-14 rounded-2xl bg-tealy/20 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-tealy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Debt Simplification</h3>
+                <p class="opacity-70 leading-relaxed">Minimize the total number of transactions. If A owes B, and B owes C, A pays C directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="pb-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass glass-card p-12 md:p-16 rounded-[40px]">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to stop worrying about money?</h2>
+                <p class="text-xl opacity-80 mb-10">Join thousands of users who track shared expenses effortlessly.</p>
+                <a href="/signup/" class="inline-block btn-primary text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl cursor-pointer">
+                    Create Your Account Now
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

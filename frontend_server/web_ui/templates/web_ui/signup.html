@@ -1,15 +1,16 @@
 {% extends "web_ui/base.html" %}
 
 {% block content %}
-<div class="flex items-center justify-center min-h-[60vh]">
-    <div class="w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+<div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-lg glass glass-card rounded-[32px] overflow-hidden">
         <div class="p-8 sm:p-10">
-            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white text-center mb-2">Create Account</h2>
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white text-center mb-2 tracking-tight">Create Account</h2>
             <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Start managing your expenses today.</p>
 
             {% if error %}
-            <div class="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 mb-6 rounded-r-md text-sm font-medium" role="alert">
-                <p>{{ error }}</p>
+            <div class="bg-red-500/10 border-l-4 border-red-500 text-red-600 p-4 mb-6 rounded-r-md flex items-center" role="alert">
+                <i class="fa-solid fa-circle-exclamation mr-3"></i>
+                <p class="text-sm font-medium">{{ error }}</p>
             </div>
             {% endif %}
 
@@ -18,32 +19,32 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Username</label>
-                    <input name="username" placeholder="jdoe" required class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors">
+                    <input name="username" placeholder="jdoe" required class="w-full px-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Email</label>
-                    <input name="email" type="email" placeholder="you@example.com" required class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors">
+                    <input name="email" type="email" placeholder="you@example.com" required class="w-full px-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm">
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
-                        <input type="password" name="password" placeholder="••••••••" required class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors">
+                        <input type="password" name="password" placeholder="••••••••" required class="w-full px-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Confirm</label>
-                        <input type="password" name="ConfirmPassword" placeholder="••••••••" required class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors">
+                        <input type="password" name="ConfirmPassword" placeholder="••••••••" required class="w-full px-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm">
                     </div>
                 </div>
 
-                <button type="submit" class="w-full mt-4 bg-indigo-600 text-white font-bold py-3.5 px-4 rounded-xl hover:bg-indigo-700 dark:hover:bg-indigo-500 transition shadow-lg transform active:scale-95">
+                <button type="submit" class="w-full mt-4 btn-primary text-white font-bold py-3.5 px-4 rounded-xl shadow-lg cursor-pointer">
                     Create Account
                 </button>
             </form>
 
             <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-                Already have an account? <a href="/login/" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold transition">Log in</a>
+                Already have an account? <a href="/login/" class="text-electric dark:text-electric hover:text-blue-700 font-bold transition">Log in</a>
             </p>
         </div>
     </div>

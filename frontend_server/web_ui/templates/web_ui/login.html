@@ -1,16 +1,16 @@
 {% extends "web_ui/base.html" %}
 
 {% block content %}
-<div class="flex items-center justify-center min-h-[60vh]">
-    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden dark:bg-gray-800 dark:border-gray-700">
+<div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-md glass glass-card rounded-[32px] overflow-hidden">
         <div class="p-8 sm:p-10">
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Welcome Back</h2>
+                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Welcome Back</h2>
                 <p class="text-gray-500 mt-2 dark:text-gray-400">Sign in to access your groups.</p>
             </div>
 
             {% if error %}
-            <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r-md flex items-center dark:bg-red-900/30 dark:text-red-400 dark:border-red-500" role="alert">
+            <div class="bg-red-500/10 border-l-4 border-red-500 text-red-600 p-4 mb-6 rounded-r-md flex items-center" role="alert">
                 <i class="fa-solid fa-circle-exclamation mr-3"></i>
                 <p class="text-sm font-medium">{{ error }}</p>
             </div>
@@ -26,7 +26,7 @@
                             <i class="fa-regular fa-envelope"></i>
                         </div>
                         <input name="email" type="email" required placeholder="you@example.com"
-                            class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:bg-gray-800">
+                            class="w-full pl-10 pr-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm dark:text-white">
                     </div>
                 </div>
 
@@ -37,17 +37,17 @@
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <input type="password" name="password" required placeholder="••••••••"
-                            class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:bg-gray-800">
+                            class="w-full pl-10 pr-4 py-3 bg-white/40 dark:bg-black/20 border border-white/50 dark:border-white/10 rounded-xl focus:bg-white/60 dark:focus:bg-black/40 focus:ring-2 focus:ring-electric focus:border-electric outline-none transition backdrop-blur-sm dark:text-white">
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3.5 px-4 rounded-xl hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition shadow-lg transform active:scale-95 dark:hover:bg-indigo-500 dark:focus:ring-indigo-900">
+                <button type="submit" class="w-full btn-primary text-white font-bold py-3.5 px-4 rounded-xl shadow-lg mt-4 cursor-pointer">
                     Sign In
                 </button>
             </form>
             
             <p class="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
-                Don't have an account? <a href="/signup/" class="text-indigo-600 hover:text-indigo-800 font-bold transition dark:text-indigo-400 dark:hover:text-indigo-300">Sign up</a>
+                Don't have an account? <a href="/signup/" class="text-electric hover:text-blue-700 font-bold transition">Sign up</a>
             </p>
         </div>
     </div>

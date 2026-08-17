@@ -3,38 +3,38 @@
 {% block content %}
 <div class="max-w-3xl mx-auto">
     <div class="mb-6 flex justify-between items-center">
-        <a href="{% url 'home' %}" class="text-sm text-gray-500 hover:text-indigo-600 transition flex items-center dark:text-gray-400 dark:hover:text-indigo-400">
+        <a href="{% url 'home' %}" class="text-sm text-gray-700 hover:text-electric transition flex items-center dark:text-gray-300 dark:hover:text-electric font-bold bg-white/40 dark:bg-black/20 px-4 py-2 rounded-xl backdrop-blur-md border border-white/50 dark:border-white/10">
             <i class="fa-solid fa-arrow-left mr-2"></i> Back to Groups
         </a>
         
         <div class="flex gap-2">
-            <button onclick="location.reload()" class="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-lg text-gray-500 hover:text-indigo-600 transition dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 cursor-pointer">
+            <button onclick="location.reload()" class="w-10 h-10 flex items-center justify-center glass rounded-xl text-gray-700 hover:text-electric transition dark:text-gray-300 cursor-pointer hover:bg-white/40">
                 <i class="fa-solid fa-arrows-rotate"></i>
             </button>
-            <a href="{% url 'add_expense' group_id %}" class="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 transition dark:hover:bg-indigo-500 flex items-center">
+            <a href="{% url 'add_expense' group_id %}" class="px-4 py-2 btn-primary text-white text-sm font-bold rounded-xl shadow-lg transition flex items-center">
                 <i class="fa-solid fa-plus mr-1"></i> Add Expense
             </a>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <div class="p-6 border-b border-gray-100 bg-gray-50/50 dark:bg-gray-700/50 dark:border-gray-600">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Expense History</h2>
-            <p class="text-gray-500 text-sm mt-1 dark:text-gray-400">Timeline of spending.</p>
+    <div class="glass glass-card rounded-[32px] overflow-hidden">
+        <div class="p-6 border-b border-white/20 dark:border-white/10 bg-white/20 dark:bg-black/20">
+            <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight">Expense History</h2>
+            <p class="text-gray-600 text-sm mt-1 dark:text-gray-400">Timeline of spending.</p>
         </div>
 
-        <div class="divide-y divide-gray-100 dark:divide-gray-700">
+        <div class="divide-y divide-white/20 dark:divide-white/10">
             {% if expenses %}
                 {% for expense in expenses %}
-                <div class="p-5 hover:bg-gray-50 transition flex items-center justify-between group dark:hover:bg-gray-700/50">
+                <div class="p-5 hover:bg-white/40 dark:hover:bg-black/40 transition flex items-center justify-between group">
                     <div class="flex items-center gap-4">
                         
                         {% if expense.is_settlement %}
-                            <div class="h-12 w-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 dark:bg-green-900/30 dark:text-green-400">
+                            <div class="h-12 w-12 rounded-xl bg-tealy/20 text-tealy flex items-center justify-center flex-shrink-0 border border-tealy/30 shadow-sm">
                                 <i class="fa-solid fa-money-bill-transfer text-lg"></i>
                             </div>
                         {% else %}
-                            <div class="h-12 w-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 dark:bg-blue-900/30 dark:text-blue-400">
+                            <div class="h-12 w-12 rounded-xl bg-pinky/20 text-pinky flex items-center justify-center flex-shrink-0 border border-pinky/30 shadow-sm">
                                 <i class="fa-solid fa-receipt text-lg"></i>
                             </div>
                         {% endif %}
@@ -42,31 +42,30 @@
                         <div>
                             {% if expense.is_settlement %}
                                 <div class="text-lg text-gray-900 dark:text-white">
-                                    {% comment %} <span class="text-gray-500 dark:text-gray-400 text-base">Payment by</span> {% endcomment %}
                                     <span class="font-bold">{{ expense.payer_name }}</span>
-                                    <span class="text-gray-500 dark:text-gray-400 text-base">to</span>
+                                    <span class="text-gray-600 dark:text-gray-400 text-base">to</span>
                                     <span class="font-bold">{{ expense.payee_name }}</span>
                                 </div>
-                                <p class="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase tracking-wide mt-0.5">
+                                <p class="text-[10px] font-bold text-tealy dark:text-tealy uppercase tracking-wide mt-0.5">
                                     Settlement
                                 </p>
                             {% else %}
                                 <p class="text-gray-900 font-bold text-lg dark:text-white capitalize">
                                     {{ expense.description }}
                                 </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                    Paid by <span class="font-semibold text-gray-700 dark:text-gray-300">{{ expense.payer_name }}</span>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    Paid by <span class="font-semibold text-gray-800 dark:text-gray-200">{{ expense.payer_name }}</span>
                                 </p>
                             {% endif %}
                             
-                            <p class="text-xs text-gray-400 mt-1">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">
                                 {{ expense.created_at|slice:":10" }}
                             </p>
                         </div>
                     </div>
 
                     <div class="text-right">
-                        <span class="block font-bold text-xl {% if expense.is_settlement %}text-green-600 dark:text-green-400{% else %}text-gray-900 dark:text-white{% endif %}">
+                        <span class="block font-bold text-xl {% if expense.is_settlement %}text-tealy{% else %}text-gray-900 dark:text-white{% endif %}">
                             ₹{{ expense.amount }}
                         </span>
                     </div>
@@ -74,7 +73,10 @@
                 {% endfor %}
             {% else %}
                 <div class="text-center py-20 px-6">
-                    <p class="text-gray-500">No activity yet.</p>
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-electric/20 mb-4 text-electric">
+                        <i class="fa-solid fa-receipt text-2xl"></i>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 font-bold text-lg">No activity yet.</p>
                 </div>
             {% endif %}
         </div>

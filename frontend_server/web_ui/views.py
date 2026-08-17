@@ -192,11 +192,14 @@ def home(request):
                 groups = res.json()
         except:
             pass
-
-    return render(request, "web_ui/home.html", {
-        "is_logged_in": bool(token),
-        "groups": groups
-    })
+        return render(request, "web_ui/home.html", {
+            "is_logged_in": True,
+            "groups": groups
+        })
+    else:
+        return render(request, "web_ui/landing.html", {
+            "is_logged_in": False
+        })
 
 
 def create_group(request):
